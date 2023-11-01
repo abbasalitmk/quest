@@ -1,0 +1,29 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+.main-wrapper {
+    height: auto;
+    min-height: 100vh;
+    background-color: rgb(221 221 221);
+}
+ul, li{
+    list-style-type: none;
+}
+
+li a{
+    text-decoration: none;
+}
+.show-answer{
+    box-shadow: 1px 2px 6px 2px #9d9898;
+}
+
+.login-container{
+    width: auto;
+    margin-top: 4rem;
+    padding: 2rem;
+    min-height: 50vh;
+    background-color: rgb(255, 254, 253);
+    box-shadow: 1px 2px 6px 2px #9d9898;
+}

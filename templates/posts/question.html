@@ -1,0 +1,64 @@
+{% extends 'theme.html' %}
+{% load static %}
+{% load crispy_forms_tags %}
+
+
+{% block 'content' %}
+<div class="container">
+    <div class="text-center p-4">
+        <h3><b class="text-danger">Question : </b>{{question}}</h3>
+        <p class="text-center ">Asked : {{user.name}}</p>
+        <p><a href="{% url 'answer' question.id %}" class="btn btn-outline-danger">Submit Your Answer</a></p>
+    </div>
+    {% if messages %}
+    <ul class="messages">
+        {% for message in messages %}
+        <li class="alert alert-success text-center">{{ message }}</li>
+        {% endfor %}
+    </ul>
+    {% endif %}
+
+
+    <div class="row">
+        <div class="col">
+
+            {% if answer %}
+
+            {% for item in answer %}
+            <div class="show-answer bg-light text-center m-3 p-3">
+                <p>{{item.answer}}</p>
+                <div class="d-flex justify-content-evenly">
+                    <p class="text-danger">Posted by: {{item.user}}</p>
+                    <p>
+
+                        {% if request.user in item.likes.all %}
+
+
+                        <a href="{% url 'like' item.id %}" class="fs-4 bi-hand-thumbs-up-fill"></a>
+                        {% else %}
+                        <a href="{% url 'like' item.id %}" class="fs-4 bi-hand-thumbs-up"></a>
+                        {% endif %}
+                        {{ item.likes.count }} Likes
+                    </p>
+
+
+                </div>
+            </div>
+
+            {% endfor %}
+            {% else %}
+            <h4 class="text-center">No answers found !</h4>
+
+
+            {% endif %}
+
+        </div>
+    </div>
+
+
+</div>
+
+
+
+
+{% endblock 'content' %}

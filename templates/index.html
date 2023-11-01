@@ -1,0 +1,22 @@
+{% extends 'theme.html' %} {% load static %}
+
+{% block 'content' %}
+
+<div class="latest-questions p-5">
+    <h4>Latest Questions</h4>
+
+    {% if questions %}
+
+    {% for items in questions %}
+    <ul>
+
+        <a class="text-danger fs-5" href="{% url 'question' items.id %}">
+            <li class="question-link p-2 "><i class="bi bi-question-square-fill me-3"></i>{{items.title}}
+        </a>
+        </li>
+    </ul>
+    {% endfor %}
+    {% endif %}
+</div>
+
+{% endblock 'content' %}
