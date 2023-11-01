@@ -1,4 +1,4 @@
-# quest-quora-clone-
+# quest
 A simple social question-and-answer website using django, django templates, django forms
 
 ## Prerequisites
